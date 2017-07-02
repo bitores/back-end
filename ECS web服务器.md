@@ -1,12 +1,12 @@
 
-###ECS :
+### ECS :
 ```
 网页  控制台：ECS 中可通过网页控制台进入ECS主机(需要网页版密码-与主机密码不一样 - 记忆主机密码时，可在此设置)
 
 Xshell控制台: ECS 中可通过 Xshell 控制台 进入ECS 主机（需要 用户名 与 主机密码）
 ```
 
-###[FTP:](http://www.cnblogs.com/lidan/archive/2011/11/12/2246507.html)
+### [FTP:](http://www.cnblogs.com/lidan/archive/2011/11/12/2246507.html)
 用户名
 密码
 用户目录
