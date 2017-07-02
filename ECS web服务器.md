@@ -1,55 +1,60 @@
-ECS :
+
+###ECS :
+```
 网页  控制台：ECS 中可通过网页控制台进入ECS主机(需要网页版密码-与主机密码不一样 - 记忆主机密码时，可在此设置)
 
 Xshell控制台: ECS 中可通过 Xshell 控制台 进入ECS 主机（需要 用户名 与 主机密码）
+```
 
-[FTP:](http://www.cnblogs.com/lidan/archive/2011/11/12/2246507.html)
+###[FTP:](http://www.cnblogs.com/lidan/archive/2011/11/12/2246507.html)
 用户名
 密码
 用户目录
-#安装 vsftp
+>安装 vsftp
 sudo apt-get update
 sudo apt-get install vsftpd
 sudo service vsftpd restart
 
 
-# vsftpd 配置文件
+> vsftpd 配置文件
 vim /etc/vsftpd.conf
-#修改
+
+>修改
 anonymouse_enable=NO
 
 local_enable=YES
 write_enable=YES
 chroot_local_user=YES
 local_umask=022
-# 新添加
+> 新添加
 userlist_deny=NO
 userlist_enable=YES
 userlist_file=/etc/allowed_users
 seccomp_sandbox=NO
 local_root=/var/www
 
-# 用户配置文件-添加用户名
+> 用户配置文件-添加用户名
 vim /etc/allowed_users  #允许用户
 vim /etc/ftpusers		#禁止用户，删除uftp
 
-#创建新添加
+> 创建新添加
 useradd testUser -m
 passwd testUser 回车
 输入密码
 
 
-## Apache2
+### Apache2
+```
 sudo apt-get install apache2
 sudo /etc/init.d/apache2 start/stop/restart
-
+```
 
 
 
 ### [https 安装](http://blog.csdn.net/Sky_qing/article/details/44303221)
 sudo a2enmod ssl  启用 ssl 模块
 
-# vim /etc/apache2/apache2.conf
+vim /etc/apache2/apache2.conf
 
 <Directory /var/www/>
     Options FollowSymLinks
@@ -57,12 +62,12 @@ sudo a2enmod ssl  启用 ssl 模块
     Require all granted
 </Directory>
 
-#放置 ssl 证书
+> 放置 ssl 证书
 cd /etc/apache2/cert
 /etc/apache2/cert/demo1
 /etc/apache2/cert/demo2
 
-# 启用其它端口
+> 启用其它端口
 vim /etc/apache2/ports.conf
 ```
 Listen 80
@@ -129,7 +134,7 @@ sudo a2dissite 000-default.conf
 </VirtualHost>
 ```
 
-vim 001-ssl.conf
+> vim 001-ssl.conf
 ```
 <VirtualHost *:443>
         SSLEngine on
