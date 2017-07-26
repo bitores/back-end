@@ -192,3 +192,40 @@ sudo a2dissite 000-default.conf
 </VirtualHost>
 
 ```
+
+
+#### 开启服务器静态缓存
+
+```
+1、
+sudo a2enmod expires
+
+2、
+sudo /etc/init.d/apache2 restart
+
+3、
+在.htaccess文件中
+#Now set the expires time for various type of contents
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    #30 days
+    ExpiresByType image/x-icon A2592000
+    ExpiresByType application/x-javascript A2592000
+    ExpiresByType application/javascript A2592000
+    ExpiresByType text/javascript A2592000
+    ExpiresByType text/ecmascript A2592000
+    ExpiresByType text/css A2592000
+    
+    #7 Days
+    ExpiresByType image/gif A604800
+    ExpiresByType image/png A604800
+    ExpiresByType image/jpeg A604800
+    ExpiresByType text/plain A604800
+    ExpiresByType application/x-shockwave-flash A604800
+    ExpiresByType video/x-flv A604800
+    ExpiresByType application/pdf A604800
+    
+    #ExpiresByType text/html A900
+</IfModule>
+```
