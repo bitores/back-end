@@ -229,3 +229,31 @@ sudo /etc/init.d/apache2 restart
     #ExpiresByType text/html A900
 </IfModule>
 ```
+
+4、
+create a new file "expires.conf" under mods_available that contains the following:
+
+```
+<IfModule mod_expires.c>
+# turn on the module for this directory
+ExpiresActive on
+
+# cache common graphics for 3 days
+ExpiresByType image/jpg "access plus 3 days"
+ExpiresByType image/gif "access plus 3 days"
+ExpiresByType image/jpeg "access plus 3 days"
+ExpiresByType image/png "access plus 3 days"
+
+# cache CSS for 24 hours
+ExpiresByType text/css "access plus 24 hours"
+
+# set the default to 24 hours
+ExpiresDefault "access plus 24 hours"
+</IfModule>
+
+5、create soft link under mods-enable
+ln -s expires.conf ../mods-available/expires.conf
+
+
+6、service apache2 restart
+```
